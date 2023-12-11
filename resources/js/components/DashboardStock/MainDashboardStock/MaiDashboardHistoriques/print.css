@@ -1,0 +1,10 @@
+.info-print {
+    display: none;
+  }
+  
+  @media print {
+    .info-print.visible {
+      /* Add styles for the print header section */
+      display: block;
+    }
+  }

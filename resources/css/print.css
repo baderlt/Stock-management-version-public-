@@ -1,0 +1,6 @@
+@media print {
+    .print-content {
+      font-size: 14px;
+      /* Add other print-specific styles here */
+    }
+}  
