@@ -12,11 +12,7 @@ class Bilan extends Controller
 
     public function bilan(){
         $date = Carbon::now();
-        // $request=json_decode($request);
-        $year=$date->year;
-        $month=$date->month;
-        $day=$date->day;
-       
+        // $request=json_decode($request);       
         $stock= DB::table('articles_en_stock')
         ->join('articles', 'articles_en_stock.id_article', '=', 'articles.id')
         ->select(DB::raw('SUM(articles_en_stock.quantite_courant_article) as sum2,articles.nom_article,articles.id'))
@@ -33,8 +29,6 @@ class Bilan extends Controller
         function employee($nom_articles){
             $date = Carbon::now();
             $year=$date->year;
-            $month=$date->month;
-            $day=$date->day;
             return DB::table('historiques')
             ->join('articles', 'historiques.id_article', '=', 'articles.id')
             ->join('employees', 'historiques.id_employee', '=', 'employees.id_employee')
@@ -50,8 +44,6 @@ class Bilan extends Controller
           function calcule($nom){
             $date = Carbon::now() ;
             $year=$date->year;
-            $month=$date->month;
-            $day=$date->day;
             $historique=DB::table('historiques')
             ->join('articles', 'historiques.id_article', '=', 'articles.id')
             ->join('employees', 'historiques.id_employee', '=', 'employees.id_employee')
