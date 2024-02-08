@@ -46,8 +46,9 @@ class Bilan extends Controller
             ->where('articles.nom_article','=',$nom_articles)
             ->groupBy('employees.nom_employee')->distinct('employees.nom_employee')->get(); 
           };
+
           function calcule($nom){
-            $date = Carbon::now();
+            $date = Carbon::now() ;
             $year=$date->year;
             $month=$date->month;
             $day=$date->day;
