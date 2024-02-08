@@ -93,8 +93,6 @@ Route::get('/get_last_stock',function(){
 
 ////// backend Mohamed
 
-  
-use \App\Models\Employee;
 
 Route::post('/ajouterEmployee', [App\Http\Controllers\Gerer_Employees::class,'Ajouter_Employee'])->name('Ajouter_Employee');
 
@@ -111,8 +109,6 @@ Route::get("/listeArticles",function(Request $req){
     return $article->select("id","nom_article","unite")->get();
 });
 
-
-
 Route::delete('/supprimerArticle', [App\Http\Controllers\Gerer_Articles::class,'Supprimer_Article'])->name('Supprimer_Article');
 
 Route::post('/ajouterArticle', [App\Http\Controllers\Gerer_Articles::class,'Ajouter_Article'])->name('Ajouter_Article');
@@ -120,8 +116,3 @@ Route::post('/ajouterArticle', [App\Http\Controllers\Gerer_Articles::class,'Ajou
 
 Route::get('bilan',[App\Http\Controllers\Bilan::class,'bilan']);
 Route::get('/produit_Epuise/{qnt?}',[App\Http\Controllers\Bilan::class,'produit_Epuise']);
-
-// Route::get("/listeEmployees2",function(Request $req){
-//     $listeEmployees=new \App\Models\Employee;
-//     return $listeEmployees->select("nom_employee")->get();
-// });

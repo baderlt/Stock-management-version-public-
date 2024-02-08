@@ -56,7 +56,6 @@ class Bilan extends Controller
             // ->groupBy('employees.nom_employee')
             ->orderby('articles.id')
             ->Distinct('articles.nom_article')
-            // ->orderBy('historiques.date_retrait','DESC')
             ->get();
     
             foreach($historique as $histori){
@@ -67,17 +66,17 @@ class Bilan extends Controller
             }
             return 0;
           }
-        // $count= DB::table('articles_en_stock')->distinct('id_article')->count();
+
         $aray=array();
         foreach( $stock as $stock){
            
             $arr=['sum'=>$stock->sum2+ calcule($stock->nom_article),'quntite_courant'=>$stock->sum2,'nom'=> $stock->nom_article,'id'=>$stock->id,'employee'=>employee($stock->nom_article)];
             array_push($aray,$arr);
         }
-        // return employee('Agenda Spiral A4');
+ 
     
         return $aray;
-        //return $historique.$stock.$count;
+
     
     }
     public function produit_Epuise(Request $request ){
