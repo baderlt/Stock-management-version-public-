@@ -140,15 +140,13 @@ export default function MainDashboardStockRetraitStepper(props){
     const completeEmployee=(props)=>{
         setCompleted((old)=>true)
         setapplyStyleEmployee({".Mui-completed":{color:"green"},".MuiStepLabel-label":{color:"black"}})
+        etapeSuivante()
         // setapplyStyleEmployee({ root: {
         //     "& .MuiStepIcon-active": { color: "red" },
         //     "& .MuiStepIcon-completed": { color: "green" },
         //     "& .Mui-disabled .MuiStepIcon-root": { color: "cyan" }
         //   }})
     }       
-    const testStyleArticle=()=>{
-        setapplyStyleArticle({".Mui-completed":{color:"green"},".MuiStepLabel-label":{color:"black"}})
-    }
 
 
     const [nom_A,setnom_A]=useState();
@@ -210,7 +208,7 @@ export default function MainDashboardStockRetraitStepper(props){
             <motion.div animate={{y:10 ,x:5,position:"relative",padding:'20px'}}>
                 <Stepper activeStep={activeStep} className="flex items-start "  >
                 {/* className="relative" */}
-                    <Step  expanded={true} sx={applyStyleArticle} onClick={()=>testStyleArticle()} 
+                    <Step  expanded={true} sx={applyStyleArticle}  
                     className="basis-1/3 self-start">
                     {/* className="absolute top-0 left-0"  */}
                         <StepLabel >
@@ -228,7 +226,7 @@ export default function MainDashboardStockRetraitStepper(props){
           {Articles ? Articles.map((item) => {
             return (
               <input className="list-group-item list-group-item-action"
-                a-key={item.id} onClick={(e)=>{print_info(e)}}
+                a-key={item.id} onClick={(e)=>{print_info(e),setapplyStyleArticle({".Mui-completed":{color:"green"},".MuiStepLabel-label":{color:"black"}}),etapeSuivante()}}
                 value={item.nom_article}
               />
             )
@@ -309,7 +307,7 @@ export default function MainDashboardStockRetraitStepper(props){
                                             <Grid item xs={12}>
                                             <TextField variant="filled" type="number" name="quantite"  inputProps={{min:1}}
                                                         onChange={(e)=>{
-                                                       Setquantite_prise(e.target.value);
+                                                       Setquantite_prise(e.target.value);etapeSuivante();setapplyStyleFin({".Mui-completed":{color:"green"},".MuiStepLabel-label":{color:"black"}})
                                                              }}>
                                                     </TextField> 
                                             </Grid>
