@@ -21,7 +21,7 @@ $request=json_decode($request);
         $stock->date_stock=$request->date_stock;
         $stock->nombre_article=$request->nombre_article; 
         $stock->montant_totale=$request->montant_totale;
-        $stock->save();
+        $stock->save() ;
 //  return back()->with('succes',$request->date_stock);
       return 'Operation Validé';
        
